@@ -1,9 +1,11 @@
 public class Solution {
     public bool ThreeConsecutiveOdds(int[] arr)
     {
-        for(var i = 2; i < arr.Length; i++)
+        for(var i = 0; i < arr.Length - 2; i++)
         {
-            if(arr[i-2] % 2 != 0 && arr[i-1] % 2 != 0 && arr[i] % 2 != 0)
+            if(arr[i] % 2 != 0 &&
+               arr[i + 1] % 2 != 0 &&
+               arr[i + 2] % 2 != 0)
             {
                 return true;
             }
