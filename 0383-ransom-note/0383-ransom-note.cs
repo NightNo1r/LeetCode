@@ -9,15 +9,18 @@ public class Solution {
 
         foreach(var ch in ransomNote)
         {
-            arr[ch-'a']--;
+            var index = ch-'a';
+            if(arr[index] == 0)
+            {
+                return false;
+            }
+
+            arr[index]--;
         }
 
         foreach(var num in arr)
         {
-            if(num < 0)
-            {
-                return false;
-            }
+            
         }
 
         return true;
