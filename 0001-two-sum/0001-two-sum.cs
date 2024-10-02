@@ -1,29 +1,18 @@
 public class Solution {
     public int[] TwoSum(int[] nums, int target)
     {
-        var indexes = Enumerable.Range(0, nums.Length).ToArray();
-        Array.Sort(nums, indexes);
-
-        var start = 0;
-        var end = nums.Length - 1;
-        while(start < end)
+        var map = new Dictionary<int, int>();
+        for(var i = 0; i < nums.Length; i++)
         {
-            var sum = nums[start] + nums[end];
-            if(sum == target)
+            var right = target - nums[i];
+            if(map.ContainsKey(right))
             {
-                break;
+                return [map[right], i];
             }
 
-            if(sum > target)
-            {
-                end--;
-            }
-            else
-            {
-                start++;
-            }
+            map.TryAdd(nums[i], i);
         }
 
-        return [indexes[start], indexes[end]];
+        return [0,0];
     }
 }
