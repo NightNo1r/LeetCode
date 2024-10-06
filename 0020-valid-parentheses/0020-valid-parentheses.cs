@@ -13,6 +13,11 @@ public class Solution {
                 continue;
             }
 
+            if(parentheses.Count == 0)
+            {
+                return false;
+            }
+
             var neededOpeningBracket = GetOpeningBracketFor(ch);
             var actualOpeningBracket = parentheses.Pop();
 
@@ -22,7 +27,7 @@ public class Solution {
             }
         }
 
-        return true;
+        return parentheses.Count == 0;
     }
 
     private char GetOpeningBracketFor(char closingBracket) =>
